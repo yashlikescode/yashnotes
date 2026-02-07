@@ -3,5 +3,5 @@ git add .
 set /p userInput="Enter commit message: "
 git commit -m "%userInput%"
 git push origin main
-git push gitlab main
+git push main main
 
