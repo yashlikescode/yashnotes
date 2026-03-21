@@ -1,0 +1,14 @@
+- 1 cup curd
+- stir it well to make it smooth
+- 1 cup water (water as per viscosity required)
+- stir it well
+- 1/2 spoon jeera powder
+- 1/2 spoon red chilli powder
+- 1/2 spoon chaat masala
+- green chilli as per requirement
+- Mint + coriender leaves
+- pinch of hing powder
+- 1 spoon sugar powder
+- soak boondi for 10 minutes, remove water and put it in raita
+- put a little bit of black salt and sea salt just before serving
+

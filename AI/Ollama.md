@@ -1,0 +1,7 @@
+- ```ollama pull llama3.2:latest``` to pull this model
+- ```irm https://ollama.com/install.ps1 | iex``` to install ollama
+- List installed models: ```ollama list```
+- ```ollama run llama3.2:latest``` to run the llm 
+- ```ollama run <name of the model from list>``` to run the llm 
+- Stop a running model ```ollama stop gemma3```
+- Start Ollama ```ollama serve```

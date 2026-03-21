@@ -1,0 +1,24 @@
+Assuming only 250gm jackfruit
+- Half-boil Jackfruit
+- Half-boil Potato
+- Take 4 teaspoon of oil and heat it
+- Fry the half boiled jackfruit and potato in it (for about 10 minutes)
+- Now remove the jackfruit and the potato and use the left oil for rest of the process
+- In the warm oil, put following
+- half teaspoon cumin seeds (jeera)
+- 1 red chilli and 1 bay leaf (tejpatta)
+- take 2 big onion chopped and put it
+- 7-8 garlic cloves
+- cook for 8-10 minutes
+- 1 tomato
+- coriander powder
+- salt
+- cumin powder
+- red chilli powder
+- termuric powder
+- chopped green chilli
+- cook till oil seperates, if needed then add little water, the spices should not burn
+- Add water as per gravy needed
+- now put jackfruit, potato (boiled and fried earlier) and put garam masala
+- cook for 6-7 minutes
+- put corriender leaves on top if needed and serve
