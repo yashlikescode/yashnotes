@@ -1,0 +1,7 @@
+Convert the attached screenshots to satisfy the following conditions, keep in mind to do not give only screenshots in those images, also keep some attractive statements so that people will be attracted to download the app, you will find two kinds of images in portrait mode and in landscape mode, for the phones and tabs use the vertical images and for the chromebook screenshots, use the landscape screenshots - 
+1. Upload 2-8 phone screenshots. Screenshots must be PNG or JPEG, up to 8 MB each, 16:9 or 9:16 aspect ratio, with each side between 320 px and 3,840 px
+2. Upload up to eight 7-inch tablet screenshots. Screenshots must be PNG or JPEG, up to 8 MB each, 16:9 or 9:16 aspect ratio, with each side between 320 px and 3,840 px
+3. Upload up to eight 10-inch tablet screenshots. Screenshots must be PNG or JPEG, up to 8 MB each, 16:9 or 9:16 aspect ratio, with each side between 1,080 px and 7,680 pxx
+4. Upload 4-8 screenshots. Screenshots must be PNG or JPEG, up to 8 MB each, 16:9 or 9:16 aspect ratio, with each side between 1,080 px and 7,680 px
+
+Also create a 512px x 512px logo of the app by looking at the theme color and the functionality, the logo should be simple yet showing what the app does.
