@@ -1,3 +1,35 @@
+## Initial list
+```
+FastAPI
+↓
+S3
+↓
+DynamoDB
+↓
+RAG Architecture
+↓
+Bedrock
+↓
+Lambda
+↓
+ECS
+↓
+CloudWatch
+↓
+X-Ray
+↓
+Agent Design
+↓
+Security & Guardrails
+↓
+Terraform/CDK
+↓
+EKS
+↓
+System Design
+```
+## Final List
+```
 Generative AI Architecture on AWS
 AWS Bedrock (Models, APIs, Deployment)
 AWS Bedrock Agent Core SDK
@@ -44,6 +76,6 @@ Caching Strategies (Redis/ElastiCache)
 Production Operations & Incident Handling
 Team Leadership & Technical Mentorship
 Architecture Decision Making
-
+```
 
 workflows to fine-tune foundation models with techniques like SFT, DPO, and RLVR

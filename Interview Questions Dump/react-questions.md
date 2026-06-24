@@ -1425,3 +1425,344 @@ const total = orders.reduce((sum, order) => sum + order.amount, 0);
 - For performance, mention profiling before optimization.
 - For HR answers, connect your project experience to Infosys's enterprise work.
 
+# React Interview Preparation
+
+## 1. What are the major updates in React 19 compared to React 18?
+
+### Actions
+
+React 19 introduces Actions for handling asynchronous operations.
+
+```jsx
+async function submitForm(formData) {
+    // Save data
+}
+```
+
+Benefits:
+- Less boilerplate
+- Easier form handling
+- Better async management
+
+---
+
+### useActionState()
+
+New hook for managing form state.
+
+```jsx
+const [state, formAction] = useActionState(action, initialState);
+```
+
+Benefits:
+- Simplifies form state management
+- Built-in support for async actions
+
+---
+
+### useOptimistic()
+
+Provides optimistic UI updates.
+
+```jsx
+const [optimisticTodos, addTodo] = useOptimistic(todos);
+```
+
+Benefits:
+- Instant UI feedback
+- Better user experience
+
+---
+
+### useFormStatus()
+
+Tracks form submission status.
+
+```jsx
+const { pending } = useFormStatus();
+```
+
+Benefits:
+- Easy loading indicators
+- Better UX during submissions
+
+---
+
+### Improved Server Components
+
+Benefits:
+- Better streaming
+- Faster rendering
+- Reduced client-side JavaScript
+
+---
+
+### Native Metadata Support
+
+Manage page metadata directly.
+
+```jsx
+<title>Dashboard</title>
+<meta
+  name="description"
+  content="React App"
+/>
+```
+
+Benefits:
+- Simpler SEO management
+
+---
+
+### Better Asset Loading
+
+Automatic optimization for:
+- Fonts
+- CSS
+- Images
+
+Benefits:
+- Faster page loads
+
+---
+
+### Improved Hydration
+
+Benefits:
+- Faster rendering
+- Fewer hydration mismatches
+
+---
+
+### Ref as a Prop
+
+React 18:
+
+```jsx
+const Input = forwardRef((props, ref) => {
+    return <input ref={ref} />;
+});
+```
+
+React 19:
+
+```jsx
+function Input({ ref }) {
+    return <input ref={ref} />;
+}
+```
+
+Benefits:
+- Simpler component code
+
+---
+
+## React 18 vs React 19
+
+| Feature | React 18 | React 19 |
+|----------|----------|----------|
+| Concurrent Rendering | Yes | Yes |
+| Automatic Batching | Yes | Yes |
+| Suspense Improvements | Yes | Improved |
+| Actions | No | Yes |
+| useActionState | No | Yes |
+| useOptimistic | No | Yes |
+| useFormStatus | No | Yes |
+| Native Metadata | No | Yes |
+| Better Asset Loading | No | Yes |
+| Ref as Prop | No | Yes |
+
+---
+
+## Common React Interview Questions
+
+### What is React?
+A JavaScript library for building user interfaces using reusable components.
+
+### What is JSX?
+A syntax extension that allows writing HTML-like code inside JavaScript.
+
+```jsx
+const element = <h1>Hello World</h1>;
+```
+
+### What is a Component?
+
+Reusable UI building block.
+
+```jsx
+function Welcome() {
+    return <h1>Hello</h1>;
+}
+```
+
+### Difference between Functional and Class Components?
+
+Functional Component:
+
+```jsx
+function App() {
+    return <h1>Hello</h1>;
+}
+```
+
+Class Component:
+
+```jsx
+class App extends React.Component {
+    render() {
+        return <h1>Hello</h1>;
+    }
+}
+```
+
+Modern React primarily uses Functional Components.
+
+---
+
+### What is State?
+
+Data managed within a component.
+
+```jsx
+const [count, setCount] = useState(0);
+```
+
+---
+
+### What are Props?
+
+Data passed from parent to child components.
+
+```jsx
+function User({ name }) {
+    return <h1>{name}</h1>;
+}
+```
+
+---
+
+### What is useState?
+
+Hook for managing state.
+
+```jsx
+const [count, setCount] = useState(0);
+```
+
+---
+
+### What is useEffect?
+
+Hook for side effects.
+
+```jsx
+useEffect(() => {
+    fetchData();
+}, []);
+```
+
+---
+
+### What is Virtual DOM?
+
+A lightweight copy of the real DOM used for efficient updates.
+
+---
+
+### What is Reconciliation?
+
+The process React uses to compare Virtual DOM changes and update the real DOM efficiently.
+
+---
+
+### What is Key in React?
+
+Used to uniquely identify list items.
+
+```jsx
+{
+  users.map(user => (
+      <li key={user.id}>{user.name}</li>
+  ))
+}
+```
+
+---
+
+### What are Hooks?
+
+Functions that allow state and lifecycle features in functional components.
+
+Examples:
+- useState
+- useEffect
+- useContext
+- useReducer
+- useMemo
+- useCallback
+
+---
+
+### What is useMemo?
+
+Memoizes computed values.
+
+```jsx
+const result = useMemo(() => calculate(), [data]);
+```
+
+---
+
+### What is useCallback?
+
+Memoizes functions.
+
+```jsx
+const handleClick = useCallback(() => {
+    console.log("Clicked");
+}, []);
+```
+
+---
+
+### What is Context API?
+
+Used for global state management.
+
+```jsx
+const UserContext = createContext();
+```
+
+---
+
+### What is React Router?
+
+Library for client-side routing.
+
+```jsx
+<Route path="/home" element={<Home />} />
+```
+
+---
+
+### What is Lazy Loading?
+
+Loads components only when needed.
+
+```jsx
+const Dashboard = lazy(() => import("./Dashboard"));
+```
+
+Benefits:
+- Faster initial load
+- Better performance
+
+---
+
+### What is the biggest React 19 feature?
+
+Actions and the new form-related hooks:
+- useActionState
+- useOptimistic
+- useFormStatus

@@ -1084,3 +1084,377 @@ class FestivalDiscount implements DiscountStrategy { public double apply(double 
 - For SQL, know joins, indexes, ACID, normalization, and N+1 problem.
 - For experienced roles, prepare microservices, caching, API gateway, circuit breaker, and basic system design.
 - Practice writing short Java code snippets by hand, especially streams and design patterns.
+
+
+
+# Spring Boot Interview Preparation
+
+## 1. What is the Bean Lifecycle in Spring Boot?
+
+### Answer
+
+A Spring Bean goes through the following lifecycle:
+
+1. Bean Instantiation
+2. Dependency Injection
+3. Aware Interfaces Execution (Optional)
+4. BeanPostProcessor Before Initialization
+5. Initialization (@PostConstruct)
+6. Bean Ready for Use
+7. BeanPostProcessor After Initialization
+8. Bean Destruction (@PreDestroy)
+
+### Example
+
+```java
+@Component
+public class UserService {
+
+    @PostConstruct
+    public void init() {
+        System.out.println("Bean Initialized");
+    }
+
+    @PreDestroy
+    public void destroy() {
+        System.out.println("Bean Destroyed");
+    }
+}
+```
+
+### Lifecycle Flow
+
+Bean Creation
+→ Dependency Injection
+→ @PostConstruct
+→ Bean Ready
+→ @PreDestroy
+→ Bean Destroyed
+
+---
+
+## 2. What are the most commonly used Spring Boot Annotations?
+
+### @SpringBootApplication
+
+Main application annotation.
+
+```java
+@SpringBootApplication
+public class Application {
+}
+```
+
+Combines:
+- @Configuration
+- @EnableAutoConfiguration
+- @ComponentScan
+
+### @Component
+
+Generic Spring Bean.
+
+```java
+@Component
+public class Utility {
+}
+```
+
+### @Service
+
+Business logic layer.
+
+```java
+@Service
+public class UserService {
+}
+```
+
+### @Repository
+
+Database access layer.
+
+```java
+@Repository
+public interface UserRepository {
+}
+```
+
+### @Controller
+
+Returns Views.
+
+```java
+@Controller
+public class HomeController {
+}
+```
+
+### @RestController
+
+Returns JSON/XML.
+
+```java
+@RestController
+public class UserController {
+}
+```
+
+### @Autowired
+
+Dependency Injection.
+
+```java
+@Autowired
+private UserService userService;
+```
+
+### @Configuration
+
+Configuration class.
+
+```java
+@Configuration
+public class AppConfig {
+}
+```
+
+### @Bean
+
+Manual bean creation.
+
+```java
+@Bean
+public RestTemplate restTemplate() {
+    return new RestTemplate();
+}
+```
+
+### @Value
+
+Inject values from properties.
+
+```java
+@Value("${server.port}")
+private String port;
+```
+
+### @PostConstruct
+
+Runs after bean initialization.
+
+```java
+@PostConstruct
+public void init() {
+}
+```
+
+### @PreDestroy
+
+Runs before bean destruction.
+
+```java
+@PreDestroy
+public void cleanup() {
+}
+```
+
+### Request Mapping Annotations
+
+```java
+@GetMapping("/users")
+@PostMapping("/users")
+@PutMapping("/users/{id}")
+@DeleteMapping("/users/{id}")
+@RequestMapping("/users")
+```
+
+### Parameter Annotations
+
+```java
+@PathVariable
+@RequestParam
+@RequestBody
+```
+
+---
+
+## 3. What are Controllers, Services, Repositories and Components?
+
+### Controller
+
+Handles HTTP requests and responses.
+
+```java
+@RestController
+public class UserController {
+
+    @GetMapping("/users")
+    public List<User> getUsers() {
+        return userService.getUsers();
+    }
+}
+```
+
+Responsibilities:
+- Receive requests
+- Validate input
+- Return responses
+
+---
+
+### Service
+
+Contains business logic.
+
+```java
+@Service
+public class UserService {
+
+    public List<User> getUsers() {
+        return repository.findAll();
+    }
+}
+```
+
+Responsibilities:
+- Business rules
+- Calculations
+- Processing
+
+---
+
+### Repository
+
+Communicates with the database.
+
+```java
+@Repository
+public interface UserRepository extends JpaRepository<User, Long> {
+}
+```
+
+Responsibilities:
+- CRUD operations
+- Database queries
+
+---
+
+### Component
+
+Generic Spring-managed bean.
+
+```java
+@Component
+public class EmailUtility {
+}
+```
+
+Responsibilities:
+- Utility classes
+- Shared functionality
+
+---
+
+### Typical Request Flow
+
+Client
+→ Controller
+→ Service
+→ Repository
+→ Database
+
+Database
+→ Repository
+→ Service
+→ Controller
+→ Client
+
+---
+
+## 4. What are the major updates in Spring Boot 4 compared to Spring Boot 3?
+
+### Java 21 Baseline
+
+Spring Boot 4 requires Java 21.
+
+Benefits:
+- Virtual Threads
+- Better JVM performance
+- Modern language features
+
+---
+
+### Spring Framework 7
+
+Built on Spring Framework 7.
+
+Benefits:
+- Improved performance
+- Better observability
+- Better cloud support
+
+---
+
+### Enhanced AOT Processing
+
+Benefits:
+- Faster startup
+- Reduced memory usage
+- Better native image support
+
+---
+
+### Improved GraalVM Native Image Support
+
+Benefits:
+- Faster startup time
+- Lower memory consumption
+
+---
+
+### Better Observability
+
+Supports:
+- Micrometer
+- OpenTelemetry
+- Distributed tracing
+
+---
+
+### Security Improvements
+
+- Newer Spring Security integration
+- Improved defaults
+- Better authentication and authorization
+
+---
+
+### Removed Deprecated APIs
+
+APIs deprecated in Spring Boot 3 have been removed.
+
+---
+
+## Quick Spring Boot Interview Questions
+
+### What is a Bean?
+A Java object managed by the Spring IoC Container.
+
+### What is Dependency Injection?
+Providing dependencies from outside instead of creating them inside a class.
+
+### Difference between @Component and @Service?
+@Service is a specialized @Component intended for business logic.
+
+### Difference between @Controller and @RestController?
+@Controller returns views while @RestController returns JSON/XML.
+
+### Why use @Autowired?
+To inject dependencies automatically.
+
+### What is the role of a Service class?
+To contain business logic.
+
+### What is the role of a Repository?
+To interact with the database.
