@@ -1458,3 +1458,343 @@ To contain business logic.
 
 ### What is the role of a Repository?
 To interact with the database.
+
+# Spring Boot Actuators
+
+## What is an Actuator?
+
+Spring Boot Actuator is a sub-module that adds **production-ready features** to your application — monitoring, health checks, metrics, and operational visibility — without writing extra code.
+
+Add it via Maven:
+```xml
+<dependency>
+  <groupId>org.springframework.boot</groupId>
+  <artifactId>spring-boot-starter-actuator</artifactId>
+</dependency>
+```
+
+Or Gradle:
+```groovy
+implementation 'org.springframework.boot:spring-boot-starter-actuator'
+```
+
+---
+
+## How It Works
+
+Actuator exposes **endpoints** (HTTP or JMX) that return operational data about your running app. By default, most endpoints are **disabled over HTTP** for security — you enable only what you need.
+
+Base URL (default): `http://localhost:8080/actuator`
+
+---
+
+## Built-in Endpoints
+
+| Endpoint | URL | Description |
+|---|---|---|
+| `health` | `/actuator/health` | App health status |
+| `info` | `/actuator/info` | Custom app metadata |
+| `metrics` | `/actuator/metrics` | JVM, CPU, memory, HTTP stats |
+| `env` | `/actuator/env` | Environment properties |
+| `beans` | `/actuator/beans` | All Spring beans in context |
+| `mappings` | `/actuator/mappings` | All `@RequestMapping` routes |
+| `loggers` | `/actuator/loggers` | View/change log levels at runtime |
+| `threaddump` | `/actuator/threaddump` | JVM thread dump |
+| `heapdump` | `/actuator/heapdump` | Downloads a heap dump file |
+| `httptrace` | `/actuator/httptrace` | Last 100 HTTP requests |
+| `scheduledtasks` | `/actuator/scheduledtasks` | All scheduled tasks |
+| `shutdown` | `/actuator/shutdown` | Gracefully shuts down the app (POST) |
+| `caches` | `/actuator/caches` | Cache details |
+
+---
+
+## Enabling Endpoints
+
+### Expose all endpoints (dev/local only):
+```yaml
+# application.yml
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+```
+
+### Expose specific endpoints (recommended for prod):
+```yaml
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, info, metrics, loggers
+```
+
+### Enable the shutdown endpoint (disabled by default):
+```yaml
+management:
+  endpoint:
+    shutdown:
+      enabled: true
+```
+
+---
+
+## Health Endpoint
+
+`GET /actuator/health`
+
+Default response:
+```json
+{
+  "status": "UP"
+}
+```
+
+Show full details (disk, DB, custom checks):
+```yaml
+management:
+  endpoint:
+    health:
+      show-details: always   # or: when-authorized, never
+```
+
+Full response:
+```json
+{
+  "status": "UP",
+  "components": {
+    "db": { "status": "UP", "details": { "database": "PostgreSQL" } },
+    "diskSpace": { "status": "UP", "details": { "total": 499963174912, "free": 203648155648 } }
+  }
+}
+```
+
+### Custom Health Indicator
+
+```java
+@Component
+public class ExternalServiceHealthIndicator implements HealthIndicator {
+
+    @Override
+    public Health health() {
+        boolean serviceUp = checkExternalService(); // your logic
+        if (serviceUp) {
+            return Health.up().withDetail("externalApi", "reachable").build();
+        }
+        return Health.down().withDetail("externalApi", "unreachable").build();
+    }
+}
+```
+
+---
+
+## Info Endpoint
+
+`GET /actuator/info`
+
+Add metadata in `application.yml`:
+```yaml
+info:
+  app:
+    name: My Spring Boot App
+    version: 1.0.0
+    description: REST API for order management
+  build:
+    java-version: 17
+```
+
+Or inject build info automatically using the Maven plugin:
+```xml
+<plugin>
+  <groupId>org.springframework.boot</groupId>
+  <artifactId>spring-boot-maven-plugin</artifactId>
+  <executions>
+    <execution>
+      <goals><goal>build-info</goal></goals>
+    </execution>
+  </executions>
+</plugin>
+```
+
+---
+
+## Metrics Endpoint
+
+`GET /actuator/metrics` — lists all available metric names.
+
+`GET /actuator/metrics/{metric.name}` — gets a specific metric.
+
+Examples:
+```
+/actuator/metrics/jvm.memory.used
+/actuator/metrics/http.server.requests
+/actuator/metrics/process.cpu.usage
+```
+
+Sample response:
+```json
+{
+  "name": "jvm.memory.used",
+  "measurements": [{ "statistic": "VALUE", "value": 134217728 }],
+  "availableTags": [
+    { "tag": "area", "values": ["heap", "nonheap"] }
+  ]
+}
+```
+
+Filter with tags:
+```
+/actuator/metrics/jvm.memory.used?tag=area:heap
+```
+
+### Micrometer Integration
+
+Spring Boot Actuator uses **Micrometer** as its metrics facade. Plug in exporters for your monitoring stack:
+
+```xml
+<!-- Prometheus -->
+<dependency>
+  <groupId>io.micrometer</groupId>
+  <artifactId>micrometer-registry-prometheus</artifactId>
+</dependency>
+```
+
+```yaml
+management:
+  endpoints:
+    web:
+      exposure:
+        include: prometheus
+```
+
+Then scrape `/actuator/prometheus` with your Prometheus server.
+
+---
+
+## Loggers Endpoint
+
+View current log levels:
+```
+GET /actuator/loggers
+GET /actuator/loggers/com.example.service
+```
+
+**Change log level at runtime (no restart):**
+```bash
+curl -X POST http://localhost:8080/actuator/loggers/com.example.service \
+  -H "Content-Type: application/json" \
+  -d '{"configuredLevel": "DEBUG"}'
+```
+
+Reset to default:
+```bash
+curl -X POST http://localhost:8080/actuator/loggers/com.example.service \
+  -H "Content-Type: application/json" \
+  -d '{"configuredLevel": null}'
+```
+
+---
+
+## Custom Endpoint
+
+Create your own actuator endpoint:
+
+```java
+@Component
+@Endpoint(id = "appstatus")   // accessible at /actuator/appstatus
+public class AppStatusEndpoint {
+
+    @ReadOperation
+    public Map<String, Object> status() {
+        Map<String, Object> info = new HashMap<>();
+        info.put("mode", "production");
+        info.put("featureFlags", List.of("DARK_MODE", "BETA_API"));
+        return info;
+    }
+
+    @WriteOperation
+    public void updateMode(@Selector String mode) {
+        // update some config
+    }
+}
+```
+
+---
+
+## Changing the Base Path
+
+```yaml
+management:
+  endpoints:
+    web:
+      base-path: /manage   # now: /manage/health, /manage/metrics, etc.
+```
+
+Run actuator on a different port (recommended for prod):
+```yaml
+management:
+  server:
+    port: 9090
+```
+
+---
+
+## Securing Actuator Endpoints
+
+With Spring Security on the classpath, lock down actuator routes:
+
+```java
+@Configuration
+public class ActuatorSecurityConfig {
+
+    @Bean
+    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+        http.authorizeHttpRequests(auth -> auth
+            .requestMatchers("/actuator/health", "/actuator/info").permitAll()
+            .requestMatchers("/actuator/**").hasRole("ADMIN")
+            .anyRequest().authenticated()
+        );
+        return http.build();
+    }
+}
+```
+
+---
+
+## Common `application.yml` Config (Production Template)
+
+```yaml
+management:
+  server:
+    port: 9090
+  endpoints:
+    web:
+      base-path: /actuator
+      exposure:
+        include: health, info, metrics, loggers, prometheus
+  endpoint:
+    health:
+      show-details: when-authorized
+    shutdown:
+      enabled: false
+
+info:
+  app:
+    name: ${spring.application.name}
+    version: @project.version@
+```
+
+---
+
+## Quick Reference
+
+| Task | How |
+|---|---|
+| Enable all endpoints | `include: "*"` |
+| Show health details | `show-details: always` |
+| Custom health check | Implement `HealthIndicator` |
+| Custom endpoint | `@Endpoint(id = "...")` |
+| Change log level live | `POST /actuator/loggers/{name}` |
+| Export to Prometheus | Add `micrometer-registry-prometheus` |
+| Secure endpoints | Spring Security on `/actuator/**` |
+| Different port | `management.server.port: 9090` |
