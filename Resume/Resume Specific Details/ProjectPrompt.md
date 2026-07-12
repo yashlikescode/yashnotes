@@ -1,0 +1,4 @@
+- I am building a microservices app
+- frameworks used are - angular - frontend, node - business logic, django - user authentication
+- I have used omdb api to fetch movie details to fetch movies
+- users can put the movies in collections and they can share their collections to their friends

@@ -81,57 +81,8 @@ System Design
 
 Based on your syllabus, **there is no single AWS certification that covers every topic**. However, one certification covers **around 85–90%** of it.
 
-## Best Match (≈90%)
-
-**[AWS Certified Generative AI Developer – Professional (AIP-C01)](https://aws.amazon.com/certification/certified-generative-ai-developer-professional/?utm_source=chatgpt.com)**
-
-This certification is specifically designed for developers building **production-grade GenAI applications on AWS** using services like Amazon Bedrock. It covers:
-
-✅ Python application development (assumes strong programming skills)
-✅ API integration
-✅ Amazon S3
-✅ DynamoDB
-✅ AWS Lambda
-✅ CloudWatch
-✅ AWS X-Ray
-✅ IAM & Security
-✅ Secrets Manager
-✅ Infrastructure as Code (CDK emphasis)
-✅ Amazon ECS (basic familiarity)
-✅ RAG architectures
-✅ Vector databases & embeddings
-✅ Amazon Bedrock
-✅ Bedrock Knowledge Bases
-✅ Bedrock Agents
-✅ Prompt engineering
-✅ Tool calling / function calling
-✅ Responsible AI & Guardrails
-✅ Cost optimization
-✅ Monitoring & observability
-✅ Production deployment of GenAI applications
-✅ Architecture decisions for GenAI systems
-✅ Fine-tuning workflows (SFT, DPO, RL techniques) at a conceptual level ([AWS Documentation][1])
-
 ---
 
-## What it DOESN'T fully cover
-
-Your roadmap goes beyond what AWS certifications test.
-
-| Your Topic                 | Coverage                                                    |
-| -------------------------- | ----------------------------------------------------------- |
-| FastAPI                    | ❌ Learn separately                                          |
-| Advanced Python            | ❌ Assumed knowledge                                         |
-| Async Programming          | ❌                                                           |
-| Production API Design      | ❌                                                           |
-| Terraform                  | ⚠️ Mostly CDK/CloudFormation; Terraform isn't an exam focus |
-| Kubernetes (EKS Deep Dive) | ⚠️ Basic familiarity only                                   |
-| Redis / ElastiCache        | ⚠️ Limited                                                  |
-| Distributed System Design  | ⚠️ High level                                               |
-| Team Leadership            | ❌                                                           |
-| Technical Mentorship       | ❌                                                           |
-
----
 
 # To cover 100%
 
@@ -172,43 +123,6 @@ Adds:
 * Infrastructure as Code
 * ECS
 * Deployment automation
-
----
-
-# Coverage of your roadmap
-
-| Section                    | Coverage   |
-| -------------------------- | ---------- |
-| Python                     | External   |
-| FastAPI                    | External   |
-| S3                         | ✅          |
-| DynamoDB                   | ✅          |
-| Lambda                     | ✅          |
-| ECS                        | ✅          |
-| EKS                        | Partial    |
-| CloudWatch                 | ✅          |
-| X-Ray                      | ✅          |
-| IAM                        | ✅          |
-| Secrets Manager            | ✅          |
-| Encryption                 | ✅          |
-| Cost Optimization          | ✅          |
-| CI/CD                      | ✅          |
-| Terraform                  | External   |
-| CDK                        | ✅          |
-| Bedrock                    | ✅          |
-| Bedrock Agents             | ✅          |
-| Strands SDK                | ✅          |
-| RAG                        | ✅          |
-| Vector DB                  | ✅          |
-| Prompt Engineering         | ✅          |
-| Tool Calling               | ✅          |
-| Multi-Agent Systems        | ✅          |
-| Guardrails                 | ✅          |
-| Observability              | ✅          |
-| GenAI System Design        | ✅          |
-| Distributed Systems        | Partial    |
-| Fine-tuning (SFT/DPO/RLVR) | Conceptual |
-| Leadership                 | External   |
 
 ---
 

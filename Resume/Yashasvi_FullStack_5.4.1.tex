@@ -13,6 +13,7 @@
 \usepackage{enumitem}
 \usepackage[hidelinks]{hyperref}
 \usepackage{fancyhdr}
+\usepackage{changepage}
 \usepackage[english]{babel}
 \usepackage{tabularx}
 \usepackage{fontawesome5}
@@ -69,21 +70,36 @@
 
 %----------HEADING----------
 \begin{center}
-    {\Huge\bfseries Yashasvi} \\ \vspace{1pt}
+    {\Huge\bfseries Yashasvi} \\ \vspace{4pt}
+
     \small
-    +91 8540904380 \hspace{0.5em}\textbar \hspace{0.5em}
+    \faPhone\ +91 8540904380
+    \hspace{1.2em}
+    \faEnvelope\ 
     \href{mailto:kmryashasvi@gmail.com}{\underline{kmryashasvi@gmail.com}}
-    \hspace{0.5em}\textbar\hspace{0.5em}
-    \href{https://linkedin.com/in/kmryashasvi}{\underline{www.linkedin.com/in/kmryashasvi}}
-    \hspace{0.5em}\textbar\hspace{0.5em}
-    \href{https://makingyou.win}{\underline{www.makingyou.win}}
+    \hspace{1.2em}
+    \faGlobe\ 
+    \href{https://yasv.win}{\underline{yasv.win}}
+
+    \vspace{4pt}
+
+    \small
+    \faGithub\ 
+    \href{https://github.com/yashlikescode}{\underline{github.com/yashlikescode}}
+    \hspace{1.5em}
+    \faLinkedin\ 
+    \href{https://linkedin.com/in/kmryashasvi}{\underline{linkedin.com/in/kmryashasvi}}
+    \hspace{1.5em}
+    \faTwitter\ 
+    \href{https://x.com/yash_onx_}{\underline{x.com/yash\_onx\_}}
+
     \vspace{-8pt}
 \end{center}
 
 %-----------SUMMARY-----------
 \section{Summary}
 \resumeSubHeadingListStart
-\resumeItem{Full-Stack Developer with 2.2 years of experience building scalable web applications, enterprise platforms, and AI-enabled solutions. Experienced in Angular, React, Spring Boot, Node.js, and FastAPI with expertise in backend engineering, API development, distributed systems, cloud deployments, and performance optimization. Delivered scalable architectures, workflow automation, and AI-driven solutions across enterprise and freelance engagements.}
+\resumeItem{Full-Stack Developer with 2 years of experience building scalable web applications, enterprise platforms, and AI-enabled solutions. Experienced in Angular, React, Spring Boot, Node.js, and FastAPI with expertise in backend engineering, API development, distributed systems, cloud deployments, and performance optimization. Delivered scalable architectures, workflow automation, and AI-driven solutions across enterprise and freelance engagements.}
 \resumeSubHeadingListEnd
 \vspace{-15pt}
 
@@ -106,7 +122,7 @@
 
 \resumeSubheading
 {Tata Consultancy Services}{Jan 2025 -- Present}
-{Full-Stack Developer}{Current - 1 year 5 months}
+{Full-Stack Developer}{Current - 1 year 6 months}
 \resumeItemListStart
 \resumeItem{Led delivery of 6 enterprise features across Angular and Spring Boot, reducing manual effort by 30\%}
 \resumeItem{Optimized Redis caching and PostgreSQL query strategies to improve application responsiveness}
@@ -118,6 +134,22 @@
 \resumeItemListEnd
 
 \vspace{4pt}
+
+\resumeSubheading
+{Vandhana International Pvt. Ltd.}{May 2024 -- Aug 2024}
+{Full-Stack Developer }{3 months}
+\resumeItemListStart
+\resumeItem{Created WCAG-compliant applications improving accessibility and mobile usability by 40\%}
+\resumeItem{Delivered Django and MySQL services supporting workflow automation and centralized operations}
+\resumeItem{Designed configurable scoring engines evaluating systems across 10+ operational parameters}
+\resumeItem{Implemented reusable APIs and modular frontend components to improve maintainability}
+\resumeItem{Streamlined database interactions and backend workflows to enhance platform performance}
+\resumeItem{Developed HRMS modules supporting attendance and employee management for 35+ active users}
+\resumeItemListEnd
+\vspace{-6pt}
+%-----------Freelancing-----------
+\section{Freelancing}
+\vspace{-8pt}
 
 \resumeSubheading
 {Apex Marketing}{Aug 2024 -- Jan 2025}
@@ -133,25 +165,9 @@
 \resumeItemListEnd
 
 \vspace{4pt}
-
 \resumeSubheading
-{Vandhana International Pvt. Ltd.}{May 2024 -- Aug 2024}
-{Full-Stack Developer }{4 months}
-\resumeItemListStart
-\resumeItem{Created WCAG-compliant applications improving accessibility and mobile usability by 40\%}
-\resumeItem{Delivered Django and MySQL services supporting workflow automation and centralized operations}
-\resumeItem{Designed configurable scoring engines evaluating systems across 10+ operational parameters}
-\resumeItem{Implemented reusable APIs and modular frontend components to improve maintainability}
-\resumeItem{Streamlined database interactions and backend workflows to enhance platform performance}
-\resumeItem{Developed HRMS modules supporting attendance and employee management for 35+ active users}
-\resumeItemListEnd
-\vspace{-6pt}
-%-----------Freelancing-----------
-\section{Freelancing}
-\vspace{-8pt}
-\resumeSubheading
-{REVY Environmental Solutions Pvt. Ltd}{}
-{Full-Stack Developer}{}
+{REVY Environmental Solutions Pvt. Ltd}{May 2023 -- April 2024}
+{Full-Stack Developer}{1 year}
 \resumeItemListStart
 \resumeItem{Architected a multi-tenant Angular and FastAPI platform supporting 100+ client workflows}
 \resumeItem{Defined scalable onboarding workflows reducing requirement gathering effort by 60\%}
@@ -163,21 +179,78 @@
 
 \resumeSubHeadingListEnd
 
-%-----------PROJECTS-----------
+\vspace{-12pt}
+
 \section{Projects}
 \resumeSubHeadingListStart
 \vspace{-7pt}
+
+% ===================== MAIN PROJECT =====================
 \resumeProjectHeading
-{\textbf{Movies DB} $|$ \emph{Angular, Node, Express, TypeScript}}{}
+{\textbf{MoviesDB - Microservices Movie Collection Platform}}
+{
+{
+\faLink\ 
+\href{https://moviesdb.yasv.win/}
+{\underline{Link}}
+}
+{
+\faGithub\
+\href{https://github.com/Movies-DataBase}
+{\underline{GitHub}}
+}
+}
+\vspace{-14pt}
 \resumeItemListStart
-\resumeItem{Engineered a web app to manage 50+ movie collections with persistent storage}
-\resumeItem{Integrated movie search handling 100+ API requests per session}
-\resumeItem{Developed full CRUD operations with $<200ms $ response time}
-\resumeItem{Enhanced UI flow increasing user interaction by 30\%}
+\resumeItem{Designed and developed a microservices-based movie collection platform enabling users to create, organize and share personalized movie collections}
+\resumeItem{Integrated OMDb API for real-time movie discovery with intelligent search and metadata retrieval}
+\resumeItem{Implemented service-oriented architecture separating frontend, business logic and authentication services}
+\resumeItem{Built secure JWT-based authentication, collection sharing and REST APIs supporting scalable client-server communication}
 \resumeItemListEnd
 
+% ===================== FRONTEND =====================
+\vspace{-35pt}
+\begin{adjustwidth}{12pt}{0pt}
+\resumeProjectHeading
+{\textbf{Frontend Service} $|$ \emph{Angular, TypeScript, RxJS}}
+{}
+\vspace{-14pt}
+\resumeItemListStart
+\resumeItem{Developed responsive Angular SPA with reusable standalone components and lazy-loaded routes}
+\resumeItem{Implemented collection management, movie search, authentication workflows and friend sharing interfaces}
+\resumeItem{Optimized state management, API communication and UI responsiveness using RxJS}
+\resumeItemListEnd
+\end{adjustwidth}
+
+% ===================== MOVIE SERVICE =====================
+\vspace{-35pt}
+\begin{adjustwidth}{12pt}{0pt}
+\resumeProjectHeading
+{\textbf{Movie Service} $|$ \emph{Node.js, Express, PostgreSQL}}
+{}
+\vspace{-13pt}
+\resumeItemListStart
+\resumeItem{Built REST APIs for movie collections, CRUD operations and collection sharing}
+\resumeItem{Integrated OMDb API for fetching live movie information with request validation and error handling}
+\resumeItem{Designed scalable database schema supporting user collections and shared resources}
+\resumeItemListEnd
+\end{adjustwidth}
+
+% ===================== AUTH SERVICE =====================
+\vspace{-35pt}
+\begin{adjustwidth}{12pt}{0pt}
+\resumeProjectHeading
+{\textbf{Authentication Service} $|$ \emph{Django, MongoDB}}
+{}
+\vspace{-14pt}
+\resumeItemListStart
+\resumeItem{Implemented authentication microservice with JWT-based login, registration and token validation}
+\resumeItem{Developed secure user management APIs with password hashing and authorization middleware}
+\resumeItem{Decoupled authentication from business services to enable independent deployment and scalability}
+\resumeItemListEnd
+\end{adjustwidth}
+
 \resumeSubHeadingListEnd
-\vspace{-12pt}
 %-----------EDUCATION-----------
 \section{Education}
 \resumeSubHeadingListStart
@@ -189,7 +262,7 @@ Relevant Coursework: Data Structures, Algorithms, AI Fundamentals
 \resumeSubHeadingListEnd
 
 
-\vspace{-12pt}
+\vspace{-16pt}
 %-----------CERTIFICATIONS-----------
 \section{Certifications}
 
