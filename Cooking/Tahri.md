@@ -1,0 +1,13 @@
+- cut onion 
+- ginger, garlic, green chilli paste
+- cut vegetables
+- put ghee 2 spoon in cooker
+- put whole spices
+- put onion 
+- put the ginger garlic paste
+- put vegetables (do not put green vegetables yet)
+- put curd (optional)
+- put turmuric, red chilli, coriander powder cook it a little
+- put salt
+- put cashew 6-7 (Optional)
+- put water

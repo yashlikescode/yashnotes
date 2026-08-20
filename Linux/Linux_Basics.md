@@ -58,3 +58,8 @@ use 2> to send error to a file
 ``` ls -l /bin/usr >error.txt 2>&1``` sends either output or the error in the txt file
 - ```grep Sam names.txt``` to see words in files which contain ```Sam```
 - ```grep ls -l | grep zip``` searching in list of directories for zip using pipe
+
+- ```sudo -i``` or ```sudo -s``` to convert a terminal into sudo terminal or root terminal
+
+
+
