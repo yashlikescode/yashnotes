@@ -1,0 +1,14 @@
+2026-10-01 10:14:02 [INFO] Server started on port 8080
+2026-10-01 10:14:15 [DEBUG] Loaded configuration from /etc/app/config.yaml
+2026-10-01 10:15:22 [INFO] Connection established with database primary-db
+2026-10-01 10:16:05 [WARN] High memory usage detected: 78% of threshold
+2026-10-01 10:17:41 [ERROR] Failed to connect to Redis cache at 10.0.0.12:6379 - Connection timed out
+2026-10-01 10:18:00 [INFO] Retrying cache connection...
+2026-10-01 10:18:05 [ERROR] Cache retry failed: host unreachable
+2026-10-01 10:19:12 [DEBUG] User session authenticated: user_id=4821
+2026-10-01 10:20:30 [WARN] Disk I/O latency spike on /var/log: 120ms
+2026-10-01 10:21:45 [ERROR] Payment gateway 504 Gateway Timeout for transaction txn_90214
+2026-10-01 10:22:01 [INFO] Worker pool scaled up to 8 threads
+2026-10-01 10:23:19 [ERROR] NullPointerException in OrderProcessor.java at line 142
+2026-10-01 10:24:00 [INFO] Scheduled health check passed
+ERROR
